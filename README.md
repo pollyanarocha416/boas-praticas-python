@@ -118,6 +118,8 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
 Para rodar os testes unitários:
 
 ```bash
+
+
 pytest tests/
 ```
 
