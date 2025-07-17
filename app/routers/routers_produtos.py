@@ -1,11 +1,10 @@
-from pydantic import BaseModel
 from typing import List, Dict
-from fastapi import FastAPI
 from fastapi import APIRouter, HTTPException
-from app.models.produtos import Produto,CriarProduto,HistoricoCompras,Preferencias
+from app.models.produtos import Produto, CriarProduto, HistoricoCompras, Preferencias
 from .routers_usuarios import usuarios
 
 router = APIRouter()
+
 
 produtos: List[Produto] = []
 contador_produto: int = 1
@@ -53,7 +52,7 @@ def recomendar_produtos(usuario_id: int, preferencias: Preferencias) -> List[Pro
 
     produtos_recomendados = [
         p for p in produtos_recomendados if p.categoria in preferencias.categorias
-    ] 
+    ]
     produtos_recomendados = [
         p
         for p in produtos_recomendados
