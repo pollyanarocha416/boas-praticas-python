@@ -40,7 +40,13 @@ def listar_produtos():
     return produtos
 
 
-@router.post("/historico_compras/{usuario_id}")
+@router.post(
+    path="/historico_compras/{usuario_id}",
+    summary="Adicionar histórico de compras",
+    status_code=201,
+    response_model=Dict[str, str],
+    description="Adiciona ou atualiza o histórico de compras de um usuário.",
+)
 def adicionar_historico_compras(
     usuario_id: int, compras: HistoricoCompras
 ) -> Dict[str, str]:
@@ -88,13 +94,17 @@ def recomendar_produtos(usuario_id: int, preferencias: Preferencias) -> List[Pro
         if produto.id == produto_id
     ]
 
-    produtos_recomendados = [
-        p for p in produtos_recomendados if p.categoria in preferencias.categorias
+    produtos_recomendados_categorias = [
+        produto
+        for produto in produtos_recomendados
+        if produto.categoria in preferencias.categorias
     ]
-    produtos_recomendados = [
-        p
-        for p in produtos_recomendados
-        if any(tag in preferencias.tags for tag in p.tags)
-    ]  # Preferencias de tags
 
-    return produtos_recomendados
+    produtos_recomendados_filtrados = []
+    for produto in produtos_recomendados_categorias:
+        for tag in produto.tags:
+            if tag in preferencias.tags:
+                produtos_recomendados_filtrados.append(produto)
+                break
+
+    return produtos_recomendados_filtrados

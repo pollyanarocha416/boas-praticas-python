@@ -26,7 +26,13 @@ def criar_usuario(nome: str) -> Usuario:
     return novo_usuario
 
 
-@router.get("/usuarios/", response_model=List[Usuario])
+@router.get(
+        path="/usuarios/",
+        summary="Listar usuários",
+        description="Retorna uma lista de todos os usuários cadastrados.",
+        status_code=200, 
+        response_model=List[Usuario]
+        )
 def listar_usuarios() -> List[Usuario]:
     """
     Lista todos os usuários cadastrados.
@@ -34,4 +40,6 @@ def listar_usuarios() -> List[Usuario]:
     Returns:
         List[Usuario]: Uma lista de objetos de usuários cadastrados.
     """
+    
+    # criar funcao que chama os usuarios do bd
     return usuarios
