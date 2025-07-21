@@ -1,8 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from app.db.produtos.connection import engine
-from app.models.usuarios import Usuarios
-from typing import List
-
+from app.db.produtos.models import Usuarios  # modelo ORM
 
 class UsuariosDaos:
     def all(self):
