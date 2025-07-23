@@ -120,7 +120,6 @@ Para rodar os testes unitários:
 
 ```bash
 
-
 python -m pytest app/tests/
 ```
 
