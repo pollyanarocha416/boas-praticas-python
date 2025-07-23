@@ -1,7 +1,6 @@
 # API de Recomendação de Produtos
 
 
-
 Este projeto é uma API criada com FastAPI para recomendação de produtos baseada no histórico de compras de usuários e preferências como categorias e tags.
 
 ## Funcionalidades
