@@ -8,6 +8,6 @@ class UsuariosDaos:
         session = Session()
         try:
             users = session.query(Usuarios).all()
-            return [ {"id": u.id, "nome": u.nome} for u in users ]
+            return list(users) if users else []
         finally:
             session.close()

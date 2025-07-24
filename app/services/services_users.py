@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from typing import List
-from app.models.usuarios import UsuarioSchema as Usuarios
+from app.schema.usuarios import UsuarioSchema as Usuarios
 from app.db.produtos.models import Usuarios as UsuariosModel
 from app.db.produtos.daos.usuarios import UsuariosDaos
 
@@ -16,4 +16,4 @@ class UsuariosService:
         """
         usuarios_dao = UsuariosDaos()
         usuarios = usuarios_dao.all()
-        return [Usuarios(**u) for u in usuarios]
+        return usuarios

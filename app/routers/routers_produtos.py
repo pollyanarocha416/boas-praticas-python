@@ -1,7 +1,9 @@
 from typing import List, Dict
 from fastapi import APIRouter, HTTPException
-from app.models.produtos import Produto, CriarProduto, HistoricoCompras, Preferencias
+from app.schema.produtos import Produto, CriarProduto, HistoricoCompras, Preferencias
 from .routers_usuarios import usuarios
+from app.services.services_products import ProdutosService
+
 
 router = APIRouter()
 
@@ -37,7 +39,10 @@ def listar_produtos():
     Returns:
         List[Produto]: Uma lista de objetos de produtos cadastrados.
     """
-    return produtos
+    
+    produtos = ProdutosService().get_products()
+
+    return produtos if produtos else []
 
 
 @router.post(

@@ -1,8 +1,7 @@
 from fastapi import APIRouter
 from typing import List
-from app.models.usuarios import UsuarioSchema as Usuarios
+from app.schema.usuarios import UsuarioSchema as Usuarios
 from app.db.produtos.models import Usuarios as UsuariosModel
-from app.db.produtos.daos.usuarios import UsuariosDaos
 from app.services.services_users import UsuariosService
 
 
@@ -45,7 +44,6 @@ def listar_usuarios() -> List[Usuarios]:
         List[Usuario]: Uma lista de objetos de usuários cadastrados.
     """
     
-    # criar funcao que chama os usuarios do bd
     usuarios = UsuariosService().get_users()
     if not usuarios:
         return []

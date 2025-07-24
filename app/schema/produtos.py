@@ -17,6 +17,9 @@ class CriarProduto(ProdutoBase):
 # Modelo de produto com ID
 class Produto(ProdutoBase):
     id: int
+    nome: str
+    categoria: str
+    tags: List[str]
 
 
 # Modelo para histórico de compras do usuário
