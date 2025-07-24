@@ -1,0 +1,4 @@
+PRODUTOS_USER = "root"
+PRODUTOS_NAME = "produtos"
+PRODUTOS_PASSWORD = "1234"
+PRODUTOS_HOST = "localhost:3306"
