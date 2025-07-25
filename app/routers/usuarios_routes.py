@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from typing import List
-from app.schema.usuarios import UsuarioSchema as Usuarios
-from app.db.produtos.models import Usuarios as UsuariosModel
-from app.services.services_users import UsuariosService
+from app.schemas.usuarios_schemas import UsuarioSchema as Usuarios
+from app.db.produtos.models import UsuariosTable as UsuariosModel
+from app.services.usuarios_services import UsuariosService
 
 
 router = APIRouter()

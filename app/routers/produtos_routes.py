@@ -1,8 +1,13 @@
 from typing import List, Dict
 from fastapi import APIRouter, HTTPException
-from app.schema.produtos import Produto, CriarProduto, HistoricoCompras, Preferencias
-from .routers_usuarios import usuarios
-from app.services.services_products import ProdutosService
+from app.schemas.produtos_schemas import (
+    Produto,
+    CreateProductRequest,
+    HistoricoComprasRequest,
+    PreferenciasRequest,
+)
+from .usuarios_routes import usuarios
+from app.services.produtos_services import ProdutosService
 
 
 router = APIRouter()
@@ -14,7 +19,7 @@ historico_compras: Dict[int, List[int]] = {}
 
 
 @router.post("/produtos/", response_model=Produto)
-def criar_produto(produto: CriarProduto) -> Produto:
+def criar_produto(produto: CreateProductRequest) -> Produto:
     """
     Cria um novo produto.
 
@@ -53,7 +58,7 @@ def listar_produtos():
     description="Adiciona ou atualiza o histórico de compras de um usuário.",
 )
 def adicionar_historico_compras(
-    usuario_id: int, compras: HistoricoCompras
+    usuario_id: int, compras: HistoricoComprasRequest
 ) -> Dict[str, str]:
     """
     Adiciona ou atualiza o histórico de compras de um usuário.
@@ -72,7 +77,9 @@ def adicionar_historico_compras(
 
 
 @router.post("/recomendacoes/{usuario_id}", response_model=List[Produto])
-def recomendar_produtos(usuario_id: int, preferencias: Preferencias) -> List[Produto]:
+def recomendar_produtos(
+    usuario_id: int, preferencias: PreferenciasRequest
+) -> List[Produto]:
     """
     Recomenda produtos com base no histórico de compras e preferências do usuário.
 
@@ -102,13 +109,13 @@ def recomendar_produtos(usuario_id: int, preferencias: Preferencias) -> List[Pro
     produtos_recomendados_categorias = [
         produto
         for produto in produtos_recomendados
-        if produto.categoria in preferencias.categorias
+        if preferencias.categorias is not None and produto.categoria in preferencias.categorias
     ]
 
     produtos_recomendados_filtrados = []
     for produto in produtos_recomendados_categorias:
         for tag in produto.tags:
-            if tag in preferencias.tags:
+            if preferencias.tags is not None and tag in preferencias.tags:
                 produtos_recomendados_filtrados.append(produto)
                 break
 

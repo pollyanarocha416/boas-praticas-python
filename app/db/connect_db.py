@@ -1,0 +1,1 @@
+# class com as conecções com commit e close session

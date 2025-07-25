@@ -1,0 +1,1 @@
+# exemplo: valida dados que sempre aparecem

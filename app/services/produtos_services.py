@@ -1,6 +1,6 @@
 from typing import List
-from app.schema.produtos import Produto
-from app.db.produtos.daos.produtos import ProdutosDaos
+from app.schemas.produtos_schemas import Produto
+from app.db.produtos.daos.produtos import Produtos
 
 
 class ProdutosService:
@@ -12,6 +12,6 @@ class ProdutosService:
         Returns:
             List[Usuarios]: A list of product objects.
         """
-        produtos_dao = ProdutosDaos()
-        produtos = produtos_dao.all()
-        return produtos
+        produtos_dao = Produtos()
+        produtos_db = produtos_dao.all()
+        return produtos_db

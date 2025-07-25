@@ -1,14 +1,14 @@
 from sqlalchemy.orm import sessionmaker
 from app.db.produtos.connection import engine
-from app.db.produtos.models import Produtos 
+from app.db.produtos.models import ProdutosTable 
 
 
-class ProdutosDaos:
+class Produtos:
     def all(self):
         session = sessionmaker(bind=engine)
         session = session()
         try:
-            produtos = session.query(Produtos).all()
+            produtos = session.query(ProdutosTable).all()
             return list(produtos) if produtos else []
         finally:
             session.close()

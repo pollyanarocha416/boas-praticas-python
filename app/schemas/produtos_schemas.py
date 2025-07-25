@@ -3,19 +3,19 @@ from typing import List
 
 
 # Modelo base para produto
-class ProdutoBase(BaseModel):
+class ProdutosRequest(BaseModel):
     nome: str
     categoria: str
     tags: List[str]
 
 
 # Modelo para criar um produto
-class CriarProduto(ProdutoBase):
+class CreateProductRequest(ProdutosRequest):
     pass
 
 
 # Modelo de produto com ID
-class Produto(ProdutoBase):
+class Produto(ProdutosRequest):
     id: int
     nome: str
     categoria: str
@@ -23,11 +23,11 @@ class Produto(ProdutoBase):
 
 
 # Modelo para histórico de compras do usuário
-class HistoricoCompras(BaseModel):
+class HistoricoComprasRequest(BaseModel):
     produtos_ids: List[int]
 
 
 # Modelo para preferências do usuário
-class Preferencias(BaseModel):
+class PreferenciasRequest(BaseModel):
     categorias: List[str] | None = None
     tags: List[str] | None = None
