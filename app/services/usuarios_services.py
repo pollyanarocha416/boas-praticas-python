@@ -13,6 +13,6 @@ class UsuariosService:
             List[Usuarios]: A list of user objects.
         """
         usuarios_dao = Usuarios()
-        usuarios = usuarios_dao.all()
+        usuarios_db = usuarios_dao.all()
 
-        return usuarios
+        return usuarios_db

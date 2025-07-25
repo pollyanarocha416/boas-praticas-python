@@ -44,7 +44,7 @@ def listar_produtos():
     Returns:
         List[Produto]: Uma lista de objetos de produtos cadastrados.
     """
-    
+
     produtos = ProdutosService().get_products()
 
     return produtos if produtos else []
@@ -109,13 +109,13 @@ def recomendar_produtos(
     produtos_recomendados_categorias = [
         produto
         for produto in produtos_recomendados
-        if preferencias.categorias is not None and produto.categoria in preferencias.categorias
+        if produto.categoria in preferencias.categorias
     ]
 
     produtos_recomendados_filtrados = []
     for produto in produtos_recomendados_categorias:
         for tag in produto.tags:
-            if preferencias.tags is not None and tag in preferencias.tags:
+            if tag in preferencias.tags:
                 produtos_recomendados_filtrados.append(produto)
                 break
 
