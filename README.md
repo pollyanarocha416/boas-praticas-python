@@ -120,7 +120,3 @@ Para rodar os testes unitários:
 ```bash
 python -m pytest app/tests/
 ```
-
-## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request ou relatar um problema.
