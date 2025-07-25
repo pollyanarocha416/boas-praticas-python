@@ -1,6 +1,5 @@
 # API de Recomendação de Produtos
 
-
 Este projeto é uma API criada com FastAPI para recomendação de produtos baseada no histórico de compras de usuários e preferências como categorias e tags.
 
 ## Funcionalidades
@@ -22,7 +21,7 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/uranolais/boas-praticas-python-curso01.git
+   git clone https://github.com/pollyanarocha416/boas-praticas-python.git
    cd recomendacao-produtos
    ```
 
@@ -121,7 +120,3 @@ Para rodar os testes unitários:
 ```bash
 python -m pytest app/tests/
 ```
-
-## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request ou relatar um problema.
