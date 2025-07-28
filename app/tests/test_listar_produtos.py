@@ -7,9 +7,7 @@ from app.main import app
 client = TestClient(app)
 
 
-def test_home():
-    response = client.get("/")
+def test_listar_produtos():
+    response = client.get("/produtos/")
     assert response.status_code == 200
-    assert response.json() == {
-        "mensagem": "Bem-vindo à API de Recomendação de Produtos"
-    }
+    assert len(response.json()) == 1
