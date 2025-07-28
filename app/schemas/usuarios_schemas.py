@@ -4,3 +4,6 @@ from pydantic import BaseModel
 class UsuarioSchema(BaseModel):
     id: int
     nome: str
+
+class UsuarioSchemaCreate(BaseModel):
+    nome: str

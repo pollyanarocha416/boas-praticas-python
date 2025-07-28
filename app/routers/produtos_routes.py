@@ -6,7 +6,6 @@ from app.schemas.produtos_schemas import (
     HistoricoComprasRequest,
     PreferenciasRequest,
 )
-from .usuarios_routes import usuarios
 from app.services.produtos_services import ProdutosService
 
 

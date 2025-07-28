@@ -11,3 +11,18 @@ class Usuarios:
             return list(users) if users else []
         finally:
             session.close()
+
+    def add(self, nome: str):
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        try:
+            novo_usuario = UsuariosTable(nome=nome)
+            session.add(novo_usuario)
+            session.commit()
+            session.refresh(novo_usuario)
+            return novo_usuario
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()

@@ -1,5 +1,5 @@
 from typing import List
-from app.schemas.usuarios_schemas import UsuarioSchema
+from app.schemas.usuarios_schemas import UsuarioSchema, UsuarioSchemaCreate
 from app.db.produtos.daos.usuarios import Usuarios
 
 
@@ -16,3 +16,9 @@ class UsuariosService:
         usuarios_db = usuarios_dao.all()
 
         return usuarios_db
+
+    def add_user(self, nome: str):
+        usuarios_dao = Usuarios()
+        novo_usuario = usuarios_dao.add(nome)
+        # Retorne o schema Pydantic
+        return UsuarioSchema(id=novo_usuario.id, nome=novo_usuario.nome)
