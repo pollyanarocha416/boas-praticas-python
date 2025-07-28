@@ -50,6 +50,8 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
    uvicorn app.main:app --reload
    ```
 
+
+
 6. **Acesse a documentação interativa da API:**
    Abra o navegador e acesse `http://127.0.0.1:8000/docs` para visualizar e testar as rotas da API.
 
