@@ -20,5 +20,4 @@ class UsuariosService:
     def add_user(self, nome: str):
         usuarios_dao = Usuarios()
         novo_usuario = usuarios_dao.add(nome)
-        # Retorne o schema Pydantic
         return UsuarioSchema(id=novo_usuario.id, nome=novo_usuario.nome)

@@ -2,6 +2,7 @@ from typing import List, Dict
 from fastapi import APIRouter, HTTPException
 from app.schemas.produtos_schemas import (
     Produto,
+    ProdutosRequest,
     CreateProductRequest,
     HistoricoComprasRequest,
     PreferenciasRequest,
@@ -17,8 +18,15 @@ contador_produto: int = 1
 historico_compras: Dict[int, List[int]] = {}
 
 
-@router.post("/produtos/", response_model=Produto)
-def criar_produto(produto: CreateProductRequest) -> Produto:
+@router.post(
+    path="/produtos/",
+    summary="Cadastrar produto",
+    description="Cadastra um novo produto no sistema.",
+    status_code=201,
+    response_description="Produto cadastrado com sucesso.",
+    response_model=ProdutosRequest,
+)
+def criar_produto(nome: str, categoria: str, tags: List[str]) -> ProdutosRequest:
     """
     Cria um novo produto.
 
@@ -28,11 +36,8 @@ def criar_produto(produto: CreateProductRequest) -> Produto:
     Returns:
         Produto: O objeto do produto recém-criado com um ID gerado.
     """
-    global contador_produto
-    novo_produto = Produto(id=contador_produto, **produto.model_dump())
-    produtos.append(novo_produto)
-    contador_produto += 1
-    return novo_produto
+    produto = ProdutosService().add_product(nome=nome, categoria=categoria, tags=tags)
+    return produto
 
 
 @router.get("/produtos/", response_model=List[Produto])

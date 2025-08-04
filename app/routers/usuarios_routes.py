@@ -22,7 +22,7 @@ contador_usuario: int = 1
 )
 def criar_usuario(nome: str) -> Usuarios:
     usuario = UsuariosService().add_user(nome)
-    return usuario  # Deve ser um dict ou objeto do tipo UsuarioSchema
+    return usuario
 
 
 @router.get(
