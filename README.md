@@ -1,7 +1,7 @@
 # API de Recomendação de Produtos
 
 Este projeto é uma API criada com FastAPI para recomendação de produtos baseada no histórico de compras de usuários e preferências como categorias e tags.
-
+  
 ## Funcionalidades
 
 - **Criação de usuários**: Cadastro de novos usuários.
@@ -49,6 +49,8 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
    ```bash
    uvicorn app.main:app --reload
    ```
+
+
 
 6. **Acesse a documentação interativa da API:**
    Abra o navegador e acesse `http://127.0.0.1:8000/docs` para visualizar e testar as rotas da API.
