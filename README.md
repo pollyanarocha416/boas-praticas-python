@@ -4,6 +4,7 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
   
 ## Funcionalidades
 
+
 - **Criação de usuários**: Cadastro de novos usuários.
 - **Cadastro de produtos**: Cadastro de produtos com nome, categoria e tags.
 - **Histórico de compras**: Adicionar produtos ao histórico de compras de um usuário.
