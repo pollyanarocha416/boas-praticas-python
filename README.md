@@ -66,6 +66,14 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
 │   ├── routers              # Arquivos contendo os roteadores de usuários e produtos
 │   │   ├── routers_produtos.py
 │   │   └── routers_usuarios.py
+|   |__ db
+|   |   |__ daos
+|   |   |   |__ produtos.py
+|   |   |   |__ usuarios.py
+|   |   |__ connection.py
+|   |   |__ models.py
+|   |   |__ connect_db.py
+|   |__ external_apis
 ├── tests
 │   └── test_api.py          # Testes para a API
 ├── venv                     # Ambiente virtual
