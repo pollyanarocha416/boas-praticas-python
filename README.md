@@ -7,8 +7,6 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
 
 - **Criação de usuários**: Cadastro de novos usuários.
 - **Cadastro de produtos**: Cadastro de produtos com nome, categoria e tags.
-- **Histórico de compras**: Adicionar produtos ao histórico de compras de um usuário.
-- **Recomendações de produtos**: Recomendação de produtos com base no histórico de compras e preferências do usuário.
 
 ## Tecnologias Utilizadas
 
@@ -68,6 +66,14 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
 │   ├── routers              # Arquivos contendo os roteadores de usuários e produtos
 │   │   ├── routers_produtos.py
 │   │   └── routers_usuarios.py
+|   |__ db
+|   |   |__ daos
+|   |   |   |__ produtos.py
+|   |   |   |__ usuarios.py
+|   |   |__ connection.py
+|   |   |__ models.py
+|   |   |__ connect_db.py
+|   |__ external_apis
 ├── tests
 │   └── test_api.py          # Testes para a API
 ├── venv                     # Ambiente virtual
@@ -94,25 +100,6 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
     "nome": "Produto Teste",
     "categoria": "Eletrônicos",
     "tags": ["tecnologia", "novo"]
-  }
-  ```
-
-### Adicionar histórico de compras:
-
-- **POST /historico_compras/{usuario_id}**
-  ```json
-  {
-    "produtos_ids": [1, 2]
-  }
-  ```
-
-### Recomendação de produtos:
-
-- **POST /recomendacoes/{usuario_id}**
-  ```json
-  {
-    "categorias": ["Eletrônicos"],
-    "tags": ["novo"]
   }
   ```
 
