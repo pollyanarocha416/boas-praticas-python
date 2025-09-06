@@ -1,12 +1,12 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List
 
 
 # Modelo base para produto
 class ProdutosRequest(BaseModel):
-    nome: str
-    categoria: str
-    tags: List[str]
+    nome: str = Field(..., description = "Nome do produto")
+    categoria: str = Field(..., description = "Categoria a qual esse produto faz parte")
+    tags: List[str] = Field(..., description="Tags a qual esse produto faz parte")
 
 
 # Modelo para criar um produto
