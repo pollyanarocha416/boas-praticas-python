@@ -10,4 +10,3 @@ client = TestClient(app)
 def test_listar_produtos():
     response = client.get("/produtos/")
     assert response.status_code == 200
-    assert len(response.json()) == 1

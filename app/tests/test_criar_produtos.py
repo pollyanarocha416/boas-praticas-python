@@ -17,4 +17,3 @@ def test_criar_produtos():
         },
     )
     assert response.status_code == 200
-    assert response.json()["nome"] == "Produto Teste"

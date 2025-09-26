@@ -4,8 +4,7 @@ from app.schemas.produtos_schemas import (
     Produto,
     ProdutosRequest,
     CreateProductRequest,
-    HistoricoComprasRequest,
-    PreferenciasRequest,
+    HistoricoComprasRequest
 )
 from app.services.produtos_services import ProdutosService
 import pdb
