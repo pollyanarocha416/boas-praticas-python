@@ -11,15 +11,15 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
 - **Python 3.9+**
 - **FastAPI**
 - **Pydantic**
-- **Uvicorn** (para rodar o servidor)
-- **Pytest** (para testes automatizados)
+- **Uvicorn**
+- **Pytest**
 
 ## Instalação e Configuração
 
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/pollyanarocha416/boas-praticas-python.git
-   cd recomendacao-produtos
+   cd boas-praticas-python
    ```
 
 2. **Crie um ambiente virtual:**
@@ -46,8 +46,6 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
    ```bash
    uvicorn app.main:app --reload
    ```
-
-
 
 6. **Acesse a documentação interativa da API:**
    Abra o navegador e acesse `http://127.0.0.1:8000/docs` para visualizar e testar as rotas da API.
