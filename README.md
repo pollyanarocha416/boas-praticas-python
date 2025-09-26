@@ -3,8 +3,6 @@
 Este projeto é uma API criada com FastAPI para recomendação de produtos baseada no histórico de compras de usuários e preferências como categorias e tags.
   
 ## Funcionalidades
-
-
 - **Criação de usuários**: Cadastro de novos usuários.
 - **Cadastro de produtos**: Cadastro de produtos com nome, categoria e tags.
 
@@ -102,9 +100,6 @@ Este projeto é uma API criada com FastAPI para recomendação de produtos basea
     "tags": ["tecnologia", "novo"]
   }
   ```
-
-## Rodar os Testes
-
 Para rodar os testes unitários:
 
 ```bash
